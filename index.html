@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tryp Car - Your Ride. Your Way.</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body, html {
+            height: 100%;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0b0f19;
+            overflow-x: hidden;
+        }
+        .hero-banner {
+            width: 100%;
+            display: block;
+            height: auto;
+            max-width: 100%;
+        }
+        .bottom-section {
+            background-color: #080c14;
+            text-align: center;
+            padding: 40px 20px 60px 20px;
+        }
+        .bottom-section h2 {
+            color: white;
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+        }
+        .signup-form {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        .signup-form input {
+            padding: 14px 20px;
+            border-radius: 25px;
+            border: 1px solid rgba(255,255,255,0.2);
+            background: rgba(255,255,255,0.05);
+            color: white;
+            font-size: 1rem;
+            text-align: center;
+        }
+        .signup-form button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 14px 25px;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .signup-form button:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- References your Tryp Car graphic file exactly -->
+    <img src="Screenshot_20261022_171715_Messages.jpg" alt="Tryp Car" class="hero-banner">
+
+    <div class="bottom-section">
+        <h2>Launching Soon. Join the Waiting List:</h2>
+        <form class="signup-form" action="#" method="POST">
+            <input type="email" placeholder="Enter your email address" required>
+            <button type="submit">Keep Me Updated</button>
+        </form>
+    </div>
+
+</body>
+</html>
