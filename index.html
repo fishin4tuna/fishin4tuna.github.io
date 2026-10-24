@@ -3,79 +3,289 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tryp Car - Your Ride. Your Way.</title>
+    <title>TrypCar | Premium Campus Mobility Infrastructure</title>
     <style>
+        :root {
+            --bg-navy: #0A192F;
+            --card-blue: #172A45;
+            --cyber-cyan: #00F2FE;
+            --text-white: #FFFFFF;
+            --text-muted: #8892B0;
+            --border-glow: #233554;
+        }
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
         }
-        body, html {
-            height: 100%;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #0b0f19;
-            overflow-x: hidden;
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-navy);
+            color: var(--text-white);
+            line-height: 1.6;
         }
-        .hero-banner {
+        
+        /* MOBILE-OPTIMIZED COMPACT NAVIGATION */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
-            display: block;
-            height: auto;
-            max-width: 100%;
+            background-color: rgba(10, 25, 47, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-glow);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            z-index: 1000;
         }
-        .bottom-section {
-            background-color: #080c14;
-            text-align: center;
-            padding: 40px 20px 60px 20px;
+        .brand-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
-        .bottom-section h2 {
-            color: white;
+        .tc-logo {
+            border: 2px solid var(--cyber-cyan);
+            color: var(--cyber-cyan);
+            font-weight: 800;
+            font-size: 1.1rem;
+            padding: 4px 8px;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+        .logo-text {
             font-size: 1.4rem;
-            margin-bottom: 20px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            color: var(--text-white);
         }
-        .signup-form {
+        .logo-text span { color: var(--cyber-cyan); }
+        
+        /* RESPONSIVE SCROLL NAV MENU */
+        nav {
+            display: flex;
+            gap: 15px;
+            overflow-x: auto;
+            white-space: nowrap;
+            padding-left: 10px;
+            -webkit-overflow-scrolling: touch;
+        }
+        nav::-webkit-scrollbar { display: none; }
+        nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        nav a:hover { color: var(--cyber-cyan); }
+        
+        /* CLEAN RESPONSIVE HERO CONTAINER */
+        .hero-container {
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
-            gap: 12px;
-            max-width: 400px;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 100px 24px 60px 24px;
+            background: radial-gradient(circle at center, #172A45 0%, #0A192F 100%);
+        }
+        .hero-title {
+            font-size: 3.2rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            letter-spacing: -1px;
+            line-height: 1.1;
+        }
+        .hero-title span { color: var(--cyber-cyan); }
+        .hero-subtitle {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            line-height: 1.5;
+            margin-bottom: 40px;
+        }
+        .hero-cta {
+            background: transparent;
+            border: 2px solid var(--cyber-cyan);
+            color: var(--cyber-cyan);
+            padding: 14px 35px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .hero-cta:hover {
+            background: rgba(0, 242, 254, 0.1);
+            box-shadow: 0 0 20px rgba(0, 242, 254, 0.3);
+        }
+
+        /* VERTICAL MOBILE SERVICE CARDS */
+        .services-section {
+            padding: 80px 24px;
+            background-color: #0A192F;
+            border-top: 1px solid var(--border-glow);
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+        .section-header h2 {
+            font-size: 2.1rem;
+            font-weight: 800;
+            margin-bottom: 12px;
+            line-height: 1.2;
+        }
+        .section-header h2 span { color: var(--cyber-cyan); }
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 1rem;
+            max-width: 500px;
+            margin: 0 auto;
+            line-height: 1.4;
+        }
+        .card-container {
+            display: flex;
+            flex-direction: column;
+            gap: 35px;
+            max-width: 450px;
             margin: 0 auto;
         }
-        .signup-form input {
-            padding: 14px 20px;
-            border-radius: 25px;
-            border: 1px solid rgba(255,255,255,0.2);
-            background: rgba(255,255,255,0.05);
-            color: white;
-            font-size: 1rem;
+        .card {
+            background-color: var(--card-blue);
+            border: 1px solid var(--border-glow);
+            border-radius: 8px;
+            padding: 35px 25px;
+            width: 100%;
+            transition: transform 0.3s ease;
+        }
+        .card.premium {
+            border: 2px solid var(--cyber-cyan);
+            position: relative;
+        }
+        .badge {
+            position: absolute;
+            top: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--cyber-cyan);
+            color: var(--bg-navy);
+            padding: 3px 14px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .card h3 {
+            font-size: 1.45rem;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+        .card-meta {
+            color: var(--cyber-cyan);
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 20px;
+        }
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 25px;
+        }
+        .card ul {
+            color: #A8B2D1;
+            font-size: 0.85rem;
+            padding-left: 18px;
+            line-height: 2;
+        }
+
+        /* ANCHORED JURISDICTIONAL FOOTER SHIELD */
+        footer {
+            background-color: #060D1A;
+            padding: 50px 24px;
             text-align: center;
+            font-size: 0.75rem;
+            color: #495670;
+            border-top: 1px solid var(--border-glow);
+            line-height: 1.7;
         }
-        .signup-form button {
-            background: #007bff;
-            color: white;
-            border: none;
-            padding: 14px 25px;
-            border-radius: 25px;
-            font-weight: bold;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-        .signup-form button:hover {
-            background: #0056b3;
+        .legal-notice {
+            max-width: 100%;
+            margin: 0 auto;
+            text-align: left;
+            border-left: 2px solid #172A45;
+            padding-left: 15px;
         }
     </style>
 </head>
 <body>
 
-    <!-- Displays your exact graphic file layout -->
-    <img src="Screenshot_20261022_171715_Messages.jpg" alt="Tryp Car" class="hero-banner">
+    <header>
+        <div class="brand-wrapper">
+            <div class="tc-logo">TC</div>
+            <div class="logo-text">Tryp<span>Car</span></div>
+        </div>
+        <nav>
+            <a href="#services">Tiers</a>
+            <a href="#safety">Safety</a>
+            <a href="#investors">Investors</a>
+        </nav>
+    </header>
 
-    <div class="bottom-section">
-        <h2>Launching Soon. Join the Waiting List:</h2>
-        <form class="signup-form" action="#" method="POST">
-            <input type="email" placeholder="Enter your email address" required>
-            <button type="submit">Keep Me Updated</button>
-        </form>
-    </div>
+    <main>
+        <!-- HERO SEGMENT -->
+        <section class="hero-container">
+            <h1 class="hero-title">Tryp<span>Car</span></h1>
+            <p class="hero-subtitle">The Premium, Vetted Electric Rideshare Network Engineered Exclusively for Elite University Campuses.<sup>1</sup></p>
+            <a href="mailto:info@trypcar.com" class="hero-cta">Inquire Within</a>
+        </section>
 
-</body>
-</html>
+        <!-- SERVICES SEGMENT -->
+        <section id="services" class="services-section">
+            <div class="section-header">
+                <h2>Choose Your <span>Tryp</span></h2>
+                <p>Hyper-localized mobility solutions tailored seamlessly for safety, predictability, and collegiate lifestyle economics.<sup>2</sup></p>
+            </div>
+            
+            <div class="card-container">
+                <!-- TIER 1 -->
+                <div class="card">
+                    <h3>TrypCar Standard</h3>
+                    <div class="card-meta">Daily Campus Commute</div>
+                    <p>Your pristine daily transit asset. Move securely between classrooms, housing structures, and local centers. Operating a 100% zero-emission electric sedan framework piloted strictly by background-vetted, identity-verified campus peers.</p>
+                    <ul>
+                        <li>Mandatory Student-ID Verification</li>
+                        <li>Predictable Fixed Zone Pricing</li>
+                        <li>All-Electric Active Fleet Infrastructure</li>
+                        <li>24/7 Monitored Campus Dispatch</li>
+                    </ul>
+                </div>
+
+                <!-- TIER 2 -->
+                <div class="card premium">
+                    <div class="badge">TCU Core Preference</div>
+                    <h3>TrypCar Luxe</h3>
+                    <div class="card-meta">Premium Mobility</div>
+                    <p>Elevate regional travel dynamics. Pristine, late-model premium electric vehicles (including customized Tesla and Lucid platforms) coupled with top-rated, executive student operators. Perfect for institutional events, formal logistics, and direct transit corridors to DFW and Love Field airports.</p>
+                    <ul>
+                        <li>Exclusively Luxury EV Vehicles</li>
+                        <li>Elite Tier Customer-Rated Operators</li>
+                        <li>Direct Door-to-Terminal Transfers</li>
+                        <li>Premium Cabin Comfort Frameworks</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ANTI-COPYCAT SHIELD FOOTER -->
+    <footer>
+        <div class="legal-notice">
