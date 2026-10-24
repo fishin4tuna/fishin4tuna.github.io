@@ -25,7 +25,7 @@
             line-height: 1.6;
         }
         
-        /* MOBILE-OPTIMIZED COMPACT NAVIGATION */
+        /* MOBILE-OPTIMIZED HEADER */
         header {
             position: fixed;
             top: 0;
@@ -69,16 +69,13 @@
             overflow-x: auto;
             white-space: nowrap;
             padding-left: 10px;
-            -webkit-overflow-scrolling: touch;
         }
-        nav::-webkit-scrollbar { display: none; }
         nav a {
             color: var(--text-muted);
             text-decoration: none;
             font-size: 0.85rem;
             font-weight: 600;
         }
-        nav a:hover { color: var(--cyber-cyan); }
         
         /* CLEAN RESPONSIVE HERO CONTAINER */
         .hero-container {
@@ -88,7 +85,7 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 100px 24px 60px 24px;
+            padding: 120px 24px 60px 24px;
             background: radial-gradient(circle at center, #172A45 0%, #0A192F 100%);
         }
         .hero-title {
@@ -119,10 +116,6 @@
             text-transform: uppercase;
             letter-spacing: 1px;
         }
-        .hero-cta:hover {
-            background: rgba(0, 242, 254, 0.1);
-            box-shadow: 0 0 20px rgba(0, 242, 254, 0.3);
-        }
 
         /* VERTICAL MOBILE SERVICE CARDS */
         .services-section {
@@ -146,7 +139,6 @@
             font-size: 1rem;
             max-width: 500px;
             margin: 0 auto;
-            line-height: 1.4;
         }
         .card-container {
             display: flex;
@@ -161,7 +153,6 @@
             border-radius: 8px;
             padding: 35px 25px;
             width: 100%;
-            transition: transform 0.3s ease;
         }
         .card.premium {
             border: 2px solid var(--cyber-cyan);
@@ -207,10 +198,10 @@
             line-height: 2;
         }
 
-        /* ANCHORED JURISDICTIONAL FOOTER SHIELD */
+        /* ANCHORED JURISDICTIONAL FOOTER WITH MOBILE SCROLL BUFFER */
         footer {
             background-color: #060D1A;
-            padding: 50px 24px;
+            padding: 60px 24px 220px 24px; /* Generous 220px track space fixes text cutoff glitch */
             text-align: center;
             font-size: 0.75rem;
             color: #495670;
@@ -235,8 +226,6 @@
         </div>
         <nav>
             <a href="#services">Tiers</a>
-            <a href="#safety">Safety</a>
-            <a href="#investors">Investors</a>
         </nav>
     </header>
 
@@ -286,6 +275,7 @@
         </section>
     </main>
 
-    <!-- ANTI-COPYCAT SHIELD FOOTER -->
+    <!-- FIXED MOBILE PROTECTION SHIELD FOOTER -->
     <footer>
         <div class="legal-notice">
+            <strong>[1-2] JURISDICTIONAL OWNERSHIP NOTICE & LEGAL PROTECTION LEGEND:</strong> This web infrastructure, including all structural text frameworks, modular pricing layout styles, multi-tiered fleet deployment architectures, and custom campus-geofenced routing logic, represents proprietary operational methodologies and protected original intellectual expressions belonging exclusively to TrypCar Technologies, LLC (and its designated corporate successor TrypCar, Inc.). <br><br>
